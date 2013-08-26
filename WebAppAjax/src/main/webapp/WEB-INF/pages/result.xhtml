@@ -7,16 +7,27 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
     	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+		<h:outputStylesheet library="css" name="bootstrap.css" />
 </h:head>		
 <h:body>
-	
-	<div id = "mensagem">
-		<center><h1>${usuario.nome}</h1></center>
-		<center><h1>${usuario.login}</h1></center>
-		<center><h1>${usuario.senha}</h1></center>
+	<div align="center">
+	<h1>Dados do JEDI</h1>
+	<h:panelGrid columns="2">
+
+			<h:outputLabel value="Nome:"/>
+			<h:inputText id="nome" value="#{usuario.nome}"/>
+
+			<h:outputLabel value="Login:"/>
+			<h:inputText id="login" value="#{usuario.login}"/>
+
+			<h:outputLabel value="Senha:"/>
+			<h:inputText id="senha" value="#{usuario.senha}" />
+
+			<h:outputLabel value="Idade:"/>
+			<h:inputText id="idade" />
+			
+		</h:panelGrid>
 	</div>
-	
 	<h:outputScript library="js" name="bootstrap.min.js" />
 	<h:outputScript library="js" name="bootstrap.js" />
 	<h:outputScript library="js" name="jquery-2.0.3.js" />
