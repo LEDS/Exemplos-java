@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+
+<h:head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>	
+	
+<h:body>
+
+	<div align="center">
+	<center>
+		<h1>${MensagemInicial}</h1>
+		
+	</center>
+	<form action="http://${request.serverName}:${request.serverPort}${request.contextPath}/autenticarUsuario" method="post">
+
+		<h:panelGrid columns="2">
+
+			<h:outputLabel value="Login:"/>
+
+			<h:inputText id="login" value="#{usuario.login}" onblur="ajaxGetLocal();"/>
+
+			<h:outputLabel value="Senha:"/>
+			<h:inputText id="senha" value="#{usuario.senha}" />
+			
+			<h:outputLabel value="Local:"/>
+			<h:selectOneMenu id="local">
+        	</h:selectOneMenu>
+			
+			<h:outputLabel/>
+			<button type="submit" class="btn btn-primary">Logar</button>
+			
+		</h:panelGrid>
+		<br>
+		<p class="text-error">${mensagem}</p>
+		</br>
+	</form>
+	
+	<div id="result"></div>
+	</div>
+	
+	
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="jquery-2.0.3.js" />
+	<h:outputScript library="js" name="json2.js" />
+	<h:outputScript library="js" name="mylib.js" />
+
+</h:body>
+
+</html>
