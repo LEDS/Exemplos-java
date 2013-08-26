@@ -9,7 +9,7 @@ import com.sun.jersey.api.client.ClientResponse;
 public class ExampleAPIImpl implements ExampleAPI{
 
 	
-	private String URL = "http://localhost:8080/ExampleWebService/rest/usuario";
+	private String URL = "http://localhost:8080/examplews/rest/usuario";
 	
 	private Gson gson = new Gson();
 	
