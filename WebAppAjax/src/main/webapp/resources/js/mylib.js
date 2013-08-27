@@ -28,3 +28,17 @@ function ajaxGetLocation(){
 		}
 	});
 }
+
+function verifyYear()
+{
+	var idade = $("#idade").val();
+	
+	if (idade == 900)
+	{
+		$('#result').html("<strong>Vc é o YODA</strong>");
+	}
+	else{
+		$('#result').html("<strong>Vc não é o YODA</strong>");
+	}
+	
+}

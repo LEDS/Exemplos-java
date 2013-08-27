@@ -70,5 +70,6 @@ public class UsuarioService implements CRUDService<Long, Usuario> {
 	}
 	
 	
+	
 
 }

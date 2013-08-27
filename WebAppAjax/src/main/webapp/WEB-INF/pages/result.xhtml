@@ -24,9 +24,15 @@
 			<h:inputText id="senha" value="#{usuario.senha}" />
 
 			<h:outputLabel value="Idade:"/>
-			<h:inputText id="idade" />
+			<h:inputText id="idade" onblur="verifyYear();"/>
 			
 		</h:panelGrid>
+		
+		<div id="result" class="alert">
+		 	<button type="button" class="close" data-dismiss="alert">&times;</button>
+		 	
+		</div>
+		
 	</div>
 	<h:outputScript library="js" name="bootstrap.min.js" />
 	<h:outputScript library="js" name="bootstrap.js" />
