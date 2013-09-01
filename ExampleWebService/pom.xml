@@ -208,10 +208,32 @@
 			<version>3.11.0.GA</version>
 			<scope>runtime</scope>
 		</dependency>
-
-
 	</dependencies>
+	
 	<build>
+		<plugins>
+			<!-- Maven Tomcat Plugin -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+          			<artifactId>tomcat7-maven-plugin</artifactId>
+          			<version>2.1</version>
+				<configuration>
+					<url>http://127.0.0.1:8080/manager</url>
+					<server>TomcatServer</server>
+					<path>/examplews</path>
+				</configuration>
+			</plugin>
+			<!-- Maven compiler plugin -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
 		<finalName>examplews</finalName>
 	</build>
+	
 </project>
