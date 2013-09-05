@@ -1,5 +1,7 @@
 package br.edu.ifes.sr.leds.api;
 
+import java.util.List;
+
 import br.edu.ifes.sr.leds.api.model.Usuario;
 import br.edu.ifes.sr.leds.api.util.ClientAPIUtil;
 
@@ -60,6 +62,19 @@ public class ExampleAPIImpl implements ExampleAPI{
 		
 		return usuario;
 
+	}
+
+	public boolean isWorkingList(List<String> lista) {
+		
+		String listaJson = gson.toJson(lista);
+		
+		ClientResponse response = clientAPIUtil.post(URL+"/islist",listaJson);
+		
+		String resp = response.getEntity(String.class);
+		
+		if (resp.equals("is Working list")) return true;
+		
+		return false;
 	}
 	
 	

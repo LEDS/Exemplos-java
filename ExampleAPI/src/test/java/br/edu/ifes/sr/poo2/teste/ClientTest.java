@@ -1,5 +1,7 @@
 package br.edu.ifes.sr.poo2.teste;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import junit.framework.Assert;
@@ -65,6 +67,17 @@ public class ClientTest {
 		System.out.println("Senha: "+usuarioX.getSenha());
 		
 		
+	}
+	
+	@Test
+	public void list()
+	{
+		List<String> lista = new ArrayList<String>();
+		
+		lista.add("XXX");
+		lista.add("YYY");
+		
+		Assert.assertTrue(exampleAPI.isWorkingList(lista));
 	}
 
 }

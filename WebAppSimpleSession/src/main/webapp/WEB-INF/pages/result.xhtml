@@ -9,11 +9,13 @@
 <h:head>
 </h:head>	
 <h:body>
-	<h1><center>Utilizando Variável de Sessão</center></h1>
-	<center><h1>${usuario.nome}</h1></center>
-	<center><h1>${usuario.login}</h1></center>
-	<center><h1>${usuario.senha}</h1></center>
+	<div align="center">
+	<h1>Utilizando Variável de Sessão</h1>
+	<h1>${usuario.nome}</h1>
+	<h1>${usuario.login}</h1>
+	<h1>${usuario.senha}</h1>
 	<a href="http://${request.serverName}:${request.serverPort}${request.contextPath}/usuario/info">Outra página</a>
+	</div>
 </h:body>
 
 </html>
