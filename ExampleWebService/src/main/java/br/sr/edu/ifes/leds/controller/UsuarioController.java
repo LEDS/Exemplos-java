@@ -1,5 +1,7 @@
 package br.sr.edu.ifes.leds.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +38,24 @@ public class UsuarioController extends AbstractController {
 
 	}
 
+		@RequestMapping(value = "/addList", method = RequestMethod.POST)
+		@ResponseBody
+		public ResponseEntity<String> addList(@RequestBody List<Usuario> usuarios) {
+			try {
+
+					return new ResponseEntity<String>("0",
+							HttpStatus.OK);
+				
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				return new ResponseEntity<String>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+		}
+	
+	
+	
+	
 	// Adicionando um usuario
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	@ResponseBody

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+
+<h:head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>	
+	
+<h:body>
+
+	<div align="center">
+	<center>
+		<h1>${MensagemInicial}</h1>
+		
+	</center>
+	<form id="formX" action="http://${request.serverName}:${request.serverPort}${request.contextPath}/autenticarUsuario" method="post">
+		<fieldset>
+		<h:panelGrid columns="2">
+ 			
+ 			<h:outputLabel value="CPF:" for="cpf" />
+			<h:inputText class ="cpf" id="login" value="#{usuario.login}" />
+			
+			<h:outputLabel value="Senha:" for="senha"/>
+			<h:inputText id="senha" value="#{usuario.senha}" />
+			
+			<h:outputLabel/>
+			
+			<button type="submit" class="btn btn-primary">Logar</button>
+		</h:panelGrid>
+		<br>
+		<p class="text-error">${mensagem}</p>
+		</br>
+		</fieldset>
+	</form>
+	</div>
+	
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="bootstrap.js" />
+	<h:outputScript library="js" name="jquery-2.0.3.js" />
+	<h:outputScript library="js" name="jquery.mask.min.js" />
+	<h:outputScript library="js" name="jquery.validate.min.js" />
+	
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+				//Adicionando uma mascara no campo
+				$('.cpf').mask('000.000.000-00', {reverse: true});
+		});
+		
+		//Validando os dados do formulario
+		$("#formX").validate({
+                rules: {
+                	login: {
+                		required: true,
+                        minlength: 11
+                	},
+                	senha: {
+                        required: true,
+                        minlength: 5
+                    }
+                },
+		messages:{
+				 login: {
+					 required: "Por favor entre com o CPF",
+                     minlength: "O CPF deve possuir 11 números"
+				 },
+                 senha: {
+                        required: "Por favor entre com a senha",
+                        minlength: "A sua senha deve ter pelo menos 5 números"
+                }   
+       },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+		
+</script>
+	
+	
+</h:body>
+
+</html>
