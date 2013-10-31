@@ -1,0 +1,77 @@
+package br.edu.ifes.sr.poo2.web.controller;
+
+import java.util.List;
+
+import javax.faces.bean.SessionScoped;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import br.edu.ifes.sr.poo2.model.Hospital;
+import br.edu.ifes.sr.poo2.service.HospitalService;
+
+@Controller
+@RequestMapping("/")
+@SessionScoped
+public class IndexController {
+
+	@Autowired
+	HospitalService service;
+
+	@RequestMapping(method = RequestMethod.GET)
+	public String loadForm(ModelMap model) {
+
+		Hospital hospital = new Hospital();
+
+		model.addAttribute("MensagemInicial", "Cadastro de hospital");
+
+		model.addAttribute("hospital", hospital);
+
+		return "index";
+	}
+
+	@RequestMapping(value = "/cadastrarHospital", method = RequestMethod.POST)
+	public String addHospital(@ModelAttribute Hospital hospital, ModelMap model)
+			throws Exception {
+
+		service.save(hospital);
+
+		return "redirect:/visualizar";
+	}
+
+	@RequestMapping(value = "/visualizar", method = RequestMethod.GET)
+	public String visualizarHospital(ModelMap model) {
+
+		List<Hospital> hospitais = service.getAll();
+		model.addAttribute("hospitais", hospitais);
+
+		return "result";
+	}
+
+	@RequestMapping(value = "/remover", method = RequestMethod.POST)
+	public String removeHospital(@ModelAttribute Hospital hospital, ModelMap model) {
+		
+		
+		service.delete(hospital.getId());
+
+		return "redirect:/visualizar/";
+	}
+
+	@RequestMapping(value = "/editar", method = RequestMethod.POST)
+	public String editHospital(@ModelAttribute Hospital hospital, ModelMap model) {
+
+		Hospital hosp = service.get(hospital.getId());
+
+		model.addAttribute("MensagemInicial",
+				"Cadastro de hospital:Atualizando");
+
+		model.addAttribute("hospital", hosp);
+
+		return "index";
+	}
+
+}
