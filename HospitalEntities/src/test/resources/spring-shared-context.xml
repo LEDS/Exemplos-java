@@ -24,9 +24,9 @@
 
     <context:annotation-config />
     
-	<jpa:repositories base-package="br.edu.ifes.sr.poo2.repository"/>
+	<jpa:repositories base-package="br.edu.ifes.sr.leds.repository"/>
 
-    <context:component-scan base-package="br.edu.ifes.sr.poo2">
+    <context:component-scan base-package="br.edu.ifes.sr.leds">
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.context.annotation.Configuration" />
 	</context:component-scan>

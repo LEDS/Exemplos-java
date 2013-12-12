@@ -25,13 +25,13 @@
 
   <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
       <property name="dataSource" ref="dataSource" />
-      <property name="packagesToScan" value="br.edu.ifes.sr.poo2.model" />
+      <property name="packagesToScan" value="br.edu.ifes.sr.leds.model" />
       <property name="jpaVendorAdapter">
          <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
       </property>
       <property name="jpaProperties">
          <props>
-            <prop key="hibernate.hbm2ddl.auto">update</prop> <!--create-drop  -->
+            <prop key="hibernate.hbm2ddl.auto">create-drop</prop> <!--create-drop  -->
             <prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
             <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
             

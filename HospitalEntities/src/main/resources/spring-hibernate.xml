@@ -25,7 +25,7 @@
 
   <bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
       <property name="dataSource" ref="dataSource" />
-      <property name="packagesToScan" value="br.edu.ifes.sr.poo2.model" />
+      <property name="packagesToScan" value="br.edu.ifes.sr.leds.model" />
       <property name="jpaVendorAdapter">
          <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
       </property>
