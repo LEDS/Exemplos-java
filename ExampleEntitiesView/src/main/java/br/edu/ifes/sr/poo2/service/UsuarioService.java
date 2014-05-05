@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifes.sr.poo2.model.Usuario;
+import br.edu.ifes.sr.poo2.model.view.UsuarioCountDTO;
+import br.edu.ifes.sr.poo2.model.view.UsuarioDTO;
 import br.edu.ifes.sr.poo2.repository.UsuarioRepository;
 
 @Service
-public class UsuarioService implements CRUDService<Long, Usuario> {
+public class UsuarioService{
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
@@ -69,7 +71,15 @@ public class UsuarioService implements CRUDService<Long, Usuario> {
 		return usuarioRepository.findByEmail(email);
 	}
 	
+	public List<UsuarioCountDTO> aggregationFunction()
+	{
+		return usuarioRepository.aggregationFunction();
+	}
 	
+	public List<UsuarioDTO> sampleQuery()
+	{
+		return (List<UsuarioDTO>)usuarioRepository.sampleQuery();
+	}
 	
 
 }

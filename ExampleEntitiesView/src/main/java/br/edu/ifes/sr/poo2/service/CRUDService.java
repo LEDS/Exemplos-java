@@ -16,4 +16,5 @@ public interface CRUDService <ID ,T extends Serializable> {
 	
 	public long count();
 	
+	
 }
