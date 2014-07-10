@@ -1,5 +1,7 @@
 package br.edu.ifes.sr.teste;
 
+import java.util.Date;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +27,9 @@ public class TestService extends AbstractTest {
 		usuario.setEmail("paulossjunior@gmail.com");
 		usuario.setSenha("1234");
 		usuario.setNome("Paulo");
+		usuario.setDtCadastro(new Date());
+		usuario.setIdade(30);
+		usuario.setLogin("paulossjunior");
 		
 		endereco = new Endereco();
 		endereco.setLogradouro("Rua");

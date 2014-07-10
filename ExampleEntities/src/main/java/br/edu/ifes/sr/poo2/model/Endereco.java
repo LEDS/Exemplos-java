@@ -3,8 +3,10 @@ package br.edu.ifes.sr.poo2.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
 @Entity
-public class Endereco extends Model{
+public class Endereco extends AbstractPersistable <Long>{
 
 	/**
 	 * 

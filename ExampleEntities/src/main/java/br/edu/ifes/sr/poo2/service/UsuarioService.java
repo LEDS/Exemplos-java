@@ -2,6 +2,7 @@ package br.edu.ifes.sr.poo2.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,8 @@ public class UsuarioService implements CRUDService<Long, Usuario> {
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
+	
+	private static final Logger logger = Logger.getLogger(UsuarioService.class);
 	
 	public boolean isUser (String email)
 	{
@@ -33,39 +36,43 @@ public class UsuarioService implements CRUDService<Long, Usuario> {
 			save(usuario);	
 		}
 		else{
-			throw new Exception("Usuario cadastrado");
+			logger.error("Usuario cadastrado",new Exception("Usuario cadastrado"));
+			
 		}
 	}
 
 	public void save(Usuario t) {
-		usuarioRepository.save(t);
 		
+		usuarioRepository.save(t);
+		logger.info("Usuario Salvo:"+t.toString());
 	}
 
 	public List<Usuario> getAll() {
-		// TODO Auto-generated method stub
+		
+		logger.info("Recuperando usuarios");
 		return usuarioRepository.findAll();
 	}
 
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		
 		
 		usuarioRepository.delete(id);
-		
+		logger.info("Apagando o usuário do ID: "+id);
 	}
 
 	public Usuario get(Long id) {
-		// TODO Auto-generated method stub
+		logger.info("Recuperando o usuário do ID: "+id);
 		return usuarioRepository.findOne(id);
 	}
 
 	public long count() {
-		// TODO Auto-generated method stub
+		logger.info("Retornando a quantidade de usuários");
 		return usuarioRepository.count();
 	}
 	
 	public Usuario findByEmail(String email)
 	{
+		logger.info("Recuperando o usuário pelo email: "+email);
 		return usuarioRepository.findByEmail(email);
 	}
 	
