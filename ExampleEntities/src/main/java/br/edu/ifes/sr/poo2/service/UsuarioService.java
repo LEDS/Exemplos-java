@@ -76,6 +76,11 @@ public class UsuarioService implements CRUDService<Long, Usuario> {
 		return usuarioRepository.findByEmail(email);
 	}
 	
+	public void update (Usuario usuario)
+	{
+		usuarioRepository.saveAndFlush(usuario);
+	}
+	
 	
 	
 

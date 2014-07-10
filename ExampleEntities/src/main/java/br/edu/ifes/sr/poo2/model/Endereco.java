@@ -2,6 +2,7 @@ package br.edu.ifes.sr.poo2.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Version;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -12,12 +13,25 @@ public class Endereco extends AbstractPersistable <Long>{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@Version
+	
+	private long version;
+	
 	@Column
 	private String logradouro;
 	@Column
 	private String endereco;
 	@Column
 	private String numero;
+
+	public long getVersion() {
+		return version;
+	}
+
+	public void setVersion(long version) {
+		this.version = version;
+	}
 
 	public String getLogradouro() {
 		return logradouro;

@@ -11,14 +11,20 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
 @Table(name = "USUARIO")
+
 public class Usuario extends AbstractPersistable <Long>{
 	
 	private static final long serialVersionUID = 1L;
+	
+	@Version
+	@Column(name = "VERSION")
+	private long version;
 
 	@Column(name = "LOGIN", length = 30, nullable = false, unique = true)
     private String login;
@@ -44,6 +50,16 @@ public class Usuario extends AbstractPersistable <Long>{
 
 	public String getNome() {
 		return nome;
+	}
+
+
+	public long getVersion() {
+		return version;
+	}
+
+
+	public void setVersion(long version) {
+		this.version = version;
 	}
 
 

@@ -43,10 +43,23 @@ public class TestService extends AbstractTest {
 	
 	@Test
 	public void salvar(){
+			
+		usuarioService.save(usuario);
+		Assert.assertNotSame(usuario.getId(), 0);
+	}
+	
+	@Test
+	public void update(){
 		
 		usuarioService.save(usuario);
+		long oldVersion = usuario.getVersion();
+		System.out.println("Salvando:"+usuario.getVersion());
 		
-		Assert.assertNotSame(usuario.getId(), 0);
+		usuario.setNome("João Paulo");
+		
+		usuarioService.update(usuario);
+		System.out.println("Atualizado:"+usuario.getVersion());
+		Assert.assertNotSame(usuario.getVersion(), oldVersion);
 	}
 	
 	@Test
