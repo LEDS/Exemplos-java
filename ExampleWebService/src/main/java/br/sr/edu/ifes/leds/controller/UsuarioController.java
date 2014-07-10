@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.edu.ifes.sr.poo2.model.Usuario;
-import br.edu.ifes.sr.poo2.service.UsuarioService;
 
 @Controller
 @RequestMapping("/usuario")
