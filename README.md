@@ -1,13 +1,15 @@
-ExampleEntities é um projeto que exemplifica o uso de Spring + Hibernate + JPA
+# Exemplos de aplicações Web utilizando a linguagem Java e Spring
 
-WebAppWithDB é um projeto que exemplifica o uso de JSf + BootStrap + Spring MVC + Banco de dados
+* __ExampleEntities:__ é um projeto que exemplifica o uso de Spring + Hibernate + JPA
 
-WebAppWithoutDB é um projeto que exemplifica o uso de JSF + BootStrap + Spring MVC
+* __WebAppWithDB:__ é um projeto que exemplifica o uso de JSf + BootStrap + Spring MVC + Banco de dados
 
-WebAppAjax é um projeto que exemplifica como utilizar ajax com Spring MVC + JSF
+* __WebAppWithoutDB:__ é um projeto que exemplifica o uso de JSF + BootStrap + Spring MVC
 
-ExampleWebService é um projeto que exemplifica como criar um Web Service com spring MVC
+* __WebAppAjax:__ é um projeto que exemplifica como utilizar ajax com Spring MVC + JSF
 
-ExampleAPI é um projeto que exemplifica como criar uma API para consumir um Web Service
+* __ExampleWebService:__ é um projeto que exemplifica como criar um Web Service com spring MVC
 
-ExampleTerminal é um projeto que exemplifica como utilizar o API
+* __ExampleAPI:__ é um projeto que exemplifica como criar uma API para consumir um Web Service
+
+* __ExampleTerminal:__ é um projeto que exemplifica como utilizar o API
